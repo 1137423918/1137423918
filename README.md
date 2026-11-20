@@ -39,8 +39,9 @@ The current server suite has **49 passed / 14 skipped** (jsonschema absent in th
 | [Deep Agents](https://1137423918.github.io/notes/path-normalization.html) | Normalize mixed path separators; seven new regressions recover and 380 related tests pass | [Candidate branch](https://github.com/1137423918/deepagents/tree/1137423918/sdk/normalize-backslash-paths); no upstream PR |
 | [OpenHands SDK](https://1137423918.github.io/notes/openhands-undo.html) | Preserve undo history after a failed restoration write; real permissions reproduction and 185 related tests | [Draft PR #7032](https://github.com/OpenHands/software-agent-sdk/pull/7032); human input / review pending |
 | [Google ADK](https://1137423918.github.io/notes/adk-artifact-cleanup.html) | Handle missing entries during concurrent artifact deletion; Python 3.11 / 3.13 each pass the same 2,021 related tests with 26 expected failures | [Draft PR #8278](https://github.com/google/adk-python/pull/8278); CLA account matching / human review pending |
+| [AutoGen](https://1137423918.github.io/notes/autogen-cancellation.html) | Release the token lock before cancellation callbacks; six original failures reproduced, candidate core suite 233 passed / 3 existing warnings | [Fork candidate](https://github.com/1137423918/autogen/tree/fix/cancellation-callback-deadlock); upstream archived, PR creation rejected |
 
-Neither draft PR is merged. Two Python versions exercise overlapping tests; ADK's 20 observed cleanup rounds are a bounded real-filesystem probe, not a general reliability rate. ADK storage work does not add another Agent-runtime adapter.
+The two draft PRs are not merged. AutoGen is archived/read-only; its tested fork candidate has no upstream PR. Two Python versions exercise overlapping tests; ADK's 20 observed cleanup rounds are a bounded real-filesystem probe, not a general reliability rate. ADK storage work does not add another Agent-runtime adapter.
 
 ### Real-model experiments
 
