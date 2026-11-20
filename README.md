@@ -24,12 +24,12 @@ I study lightweight visual models and build practical Agent tooling, with a focu
 | [LS-DETR](https://github.com/1137423918/LS-DETR) | Lightweight end-to-end detection in forward-looking sonar imagery | Published research |
 | [Agent Reliability Lab](https://github.com/1137423918/AgentReliabilityLab) | Tool contracts, regression evidence, and reliable software-maintenance workflows | In development |
 
-The Agent project currently includes a version-pinned Deep Agents path-contract suite and a candidate upstream fix. Raw evidence and validation limits are recorded on the [website](https://1137423918.github.io/#lab); model-level evaluation and upstream acceptance are tracked separately.
+The Agent project includes a recoverable maintenance worker with SQLite checkpoints, isolated Git worktrees, and explicit patch verification. In a real Deep Agents repository task, normal execution and three SIGKILL recovery scenarios produced the same patch, each passing 119 upstream tests; 18 project tests passed. These are scripted infrastructure tests. [Evidence and limits](https://1137423918.github.io/notes/recovery.html) are public; autonomous model evaluation is pending. A separate path-tool candidate fix passed 380 related upstream tests and is available on a personal fork, without an upstream PR yet.
 
 ### Current work
 
 - Build framework adapters and reproducible tool-level checks.
-- Evaluate failure handling and recovery on real maintenance tasks.
+- Extend recovery validation to model-driven maintenance tasks and broader fault coverage.
 - Contribute small, verifiable fixes to the upstream Agent ecosystem.
 
 Project outcomes are updated with their source versions, test records, and PR links as they become available.
