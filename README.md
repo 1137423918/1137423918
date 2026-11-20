@@ -4,11 +4,11 @@
 
 **Efficient computer vision · Reliable Agent workflows · Reproducible engineering**
 
-[Personal website](https://1137423918.github.io/) · [Research paper](https://doi.org/10.1109/LGRS.2025.3575615)
+[Personal website](https://1137423918.github.io/) · [Research paper](https://doi.org/10.1109/LGRS.2025.3575615) · [Experiment records](https://1137423918.github.io/#lab)
 
 </div>
 
-I study lightweight visual models and build practical Agent tooling, with a focus on observable behavior, reproducible experiments, and reliable execution.
+I study lightweight visual models and build Agent tooling around recoverable execution, explicit acceptance and reproducible failure analysis.
 
 ### Research
 
@@ -21,33 +21,31 @@ I study lightweight visual models and build practical Agent tooling, with a focu
 
 | Project | Focus | Status |
 | --- | --- | --- |
-| [LS-DETR](https://github.com/1137423918/LS-DETR) | Lightweight end-to-end detection in forward-looking sonar imagery | Published research |
-| [Agent Reliability Lab](https://github.com/1137423918/AgentReliabilityLab) | Tool contracts, regression evidence, and reliable software-maintenance workflows | In development |
+| [LS-DETR](https://github.com/1137423918/LS-DETR) | Lightweight detection in forward-looking sonar imagery | Published research |
+| [Agent Reliability Lab](https://github.com/1137423918/AgentReliabilityLab) | Recoverable software-maintenance workflows, tool contracts and evidence | In development |
 
-The Agent project includes a recoverable maintenance worker with SQLite checkpoints, isolated Git worktrees, and explicit patch verification. In a real Deep Agents repository task, normal execution and three SIGKILL recovery scenarios produced the same patch, each passing 119 upstream tests; 33 project tests passed, including explicit fake-HTTP transport checks. A further worker-only SIGKILL during a running upstream pytest process confirmed verifier cleanup before lock release and the same patch after resume. These are scripted infrastructure tests. [Evidence and limits](https://1137423918.github.io/notes/recovery.html) are public; autonomous repair remains unverified; actual CPU attempts are recorded below. A separate path-tool candidate fix passed 380 related upstream tests and is available on a personal fork, without an upstream PR yet.
+**Agent Reliability Lab** uses Deep Agents / LangGraph, SQLite checkpoints and isolated Git worktrees. It currently includes:
 
-### Current work
+- **Recovery and process supervision:** normal execution and three SIGKILL recovery scenarios produce identical reference patches in two real maintenance repositories. Each Deep Agents case passes 119 upstream tests; each OpenHands case passes 184 existing tests plus an independent permissions check. Worker-only interruption during pytest also verifies old verifier cleanup before lock release. [Recovery evidence](https://1137423918.github.io/notes/recovery.html).
+- **Protected acceptance and bounded repair:** fixed original tests run against candidate production code; tracked verification views, logs and feedback are hash checked. Declared Python files receive syntax checks before export, and failed candidates remain available for review. [Grading](https://1137423918.github.io/notes/protected-grading.html) · [Repair workflow](https://1137423918.github.io/notes/recovery.html#repair).
+- **Current-source navigation:** Python AST outlines and symbol pages read current checkpointed virtual files, with an 8,192-byte response bound and hashes rejecting stale reads after edits. A production-edit SIGKILL control resumes with source hashes matching edited content. [Interface and evidence](https://1137423918.github.io/notes/source-navigation.html).
 
-- Build framework adapters and reproducible tool-level checks.
-- Extend recovery validation to model-driven maintenance tasks and broader fault coverage.
-- Contribute small, verifiable fixes to the upstream Agent ecosystem.
+The current server suite has **49 passed / 14 skipped** (jsonschema absent in that environment), including six source-navigation checks. Reference editing and recovery controls use explicit scripted plans; overlapping acceptance counts are not added together. These results validate infrastructure, not autonomous repair capability or a hostile-code OS sandbox.
 
-Project outcomes are updated with their source versions, test records, and PR links as they become available.
+### Open-source contributions
 
-An additional [OpenHands SDK draft PR #7032](https://github.com/OpenHands/software-agent-sdk/pull/7032) preserves undo history when a file restoration write fails. A real Linux permissions reproduction fails before the fix and succeeds afterward; 185 related tests pass on the candidate. [Reproduction and limits](https://1137423918.github.io/notes/openhands-undo.html). Submitted, awaiting human input and maintainer review; not merged.
+| Upstream | Change and validation | State |
+| --- | --- | --- |
+| [Deep Agents](https://1137423918.github.io/notes/path-normalization.html) | Normalize mixed path separators; seven new regressions recover and 380 related tests pass | [Candidate branch](https://github.com/1137423918/deepagents/tree/1137423918/sdk/normalize-backslash-paths); no upstream PR |
+| [OpenHands SDK](https://1137423918.github.io/notes/openhands-undo.html) | Preserve undo history after a failed restoration write; real permissions reproduction and 185 related tests | [Draft PR #7032](https://github.com/OpenHands/software-agent-sdk/pull/7032); human input / review pending |
+| [Google ADK](https://1137423918.github.io/notes/adk-artifact-cleanup.html) | Handle missing entries during concurrent artifact deletion; Python 3.11 / 3.13 each pass the same 2,021 related tests with 26 expected failures | [Draft PR #8278](https://github.com/google/adk-python/pull/8278); CLA account matching / human review pending |
 
-The worker also completes an OpenHands maintenance task: normal execution and three SIGKILL recovery cases produce the same 1,795-byte patch, each passing 184 existing upstream tests plus an operator-owned permissions check. [Task, acceptance and evidence](https://1137423918.github.io/notes/openhands-undo.html#maintenance). This uses a fixed tool plan; neural-model task evaluation is pending.
+Neither draft PR is merged. Two Python versions exercise overlapping tests; ADK's 20 observed cleanup rounds are a bounded real-filesystem probe, not a general reliability rate. ADK storage work does not add another Agent-runtime adapter.
 
-An optional [bounded repair workflow](https://1137423918.github.io/notes/recovery.html#repair) retains each failed candidate and sends hash-checked verification feedback into the next round. The real OpenHands reference workflow passes after its first candidate fails, including recovery after a feedback-boundary SIGKILL. This is scripted workflow evidence; 33 project tests pass.
+### Real-model experiments
 
-[Real CPU model pilot](https://1137423918.github.io/notes/model-cpu.html): pinned Qwen3-4B FP32 and dynamic INT8 each attempted normal and checkpoint-resume modes on one public maintenance problem. All four attempts yielded no patch. Protocols, raw generated outputs and failure logs are published; generation time limits and tool-format incompatibility remain unresolved. No autonomous repair success is claimed.
+Pinned Qwen3-4B and Qwen3.5-9B CPU maintenance attempts, model/runtime hashes, fixed budgets and failure logs are public. **No neural trial has produced a verified maintenance patch.** Some checkpoints preserve read-only tool progress; edited-file recovery is currently demonstrated by scripted reference controls. The new source-navigation model preset is prepared but has not run neural inference; net token, cost and latency gains are unmeasured.
 
-[Declared-tool compatibility](https://1137423918.github.io/notes/model-cpu.html#compat) adds schema validation and 14 parser checks. A fresh model call now triggers one valid read-only fixture read; its followup returns `None`, so the full roundtrip still fails the declared acceptance criterion. Both generations and the failure are retained.
+[FP32 / INT8 attempts and tool-format diagnostics](https://1137423918.github.io/notes/model-cpu.html) · [Native Q4_K_M trials](https://1137423918.github.io/notes/native-cpu.html) · [Qwen3.5 request-budget analysis](https://1137423918.github.io/notes/qwen35-maintenance.html)
 
-[Native CPU maintenance pilot](https://1137423918.github.io/notes/native-cpu.html): official llama.cpp with a pinned 2.50 GB Q4_K_M derivative ran the real task in normal and checkpoint-resume modes. Both hit the 600-second budget without exporting a patch. Checkpoints retain 9/13 tool results; navigation state continued after interruption. Model/runtime hashes, failure samples and three separate launcher cleanup checks are published.
-
-[Protected grading](https://1137423918.github.io/notes/protected-grading.html) preserves baseline tests in an independent candidate view and checks declared Python files before export. The same intentionally regressing patch passes mutable candidate tests but fails a specific original regression. At that stage, the server suite had 42 passed, 14 skipped for missing jsonschema in that environment; scripted controls, not a neural repair success.
-
-[Google ADK draft PR #8278](https://github.com/google/adk-python/pull/8278) handles missing files during concurrent artifact deletion while preserving other errors and nested artifacts. On the server, Python 3.11 and 3.13 each pass the same 2,021 related tests with 26 expected failures. A real public-API cleanup probe succeeds in all 20 observed final rounds; this is not a general reliability rate. [Reproduction, earlier failed candidate and scope](https://1137423918.github.io/notes/adk-artifact-cleanup.html). Open, not merged; CLA account matching and human review pending. No model inference or third Agent-runtime adapter claim.
-
-[Qwen3.5-9B CPU maintenance](https://1137423918.github.io/notes/qwen35-maintenance.html) ran the protected task with a pinned Q4_K_M artifact and explicit sampling. Both predeclared trials failed at the individual 180-second request limit, with no edits, patch or official acceptance. Checkpoint recovery retained two read results and continued to four; this is read-state continuation only. Model/runtime identities, prelaunch protocol, timeout logs and forced service cleanup are public. The current server regression has 43 passed / 14 skipped (jsonschema absent), including one added fake-HTTP sampling check; no repair-rate or speedup claim.
+Current work focuses on source localization, context selection and independently verified maintenance tasks. Outcomes are published with pinned versions, test records and clearly stated limits.
