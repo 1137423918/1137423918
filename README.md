@@ -32,7 +32,9 @@ I study lightweight visual models and build Agent tooling around recoverable exe
 
 - **Full-request context accounting:** 14 actual HTTP JSON bodies include prompts, tool schemas and history. Three operator-planned controls retrieve the same 86 source lines: sequential / known-name grep / AST use 43,990 / 11,341 / 19,054 logical reference input tokens. Grep is cheaper for these known names; reference rendering is not observed inference usage or a speed/repair score. [Protocol and evidence](https://1137423918.github.io/notes/context-budget.html).
 
-The current server suite has **49 passed / 14 skipped** (jsonschema absent in that environment), including six source-navigation checks. Reference editing and recovery controls use explicit scripted plans; overlapping acceptance counts are not added together. These results validate infrastructure, not autonomous repair capability or a hostile-code OS sandbox.
+- **Persistent model-request budgets:** reserve HTTP attempts and serialized-body bytes durably before send; failures and interrupted requests remain charged across restart and repair rounds. Real-repository normal/SIGKILL controls each use three HTTP calls and retain identical request bodies and patches. [Configuration and evidence](https://1137423918.github.io/notes/model-request-budget.html).
+
+The current dedicated server suite has **74 passed / zero skipped**, including 11 budget checks. The new environment installs jsonschema, so 14 previously skipped parser checks now execute. Reference editing and recovery controls use explicit scripted plans; overlapping acceptance counts are not added together. These results validate infrastructure, not autonomous repair capability or a hostile-code OS sandbox.
 
 ### Open-source contributions
 
