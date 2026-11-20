@@ -30,6 +30,8 @@ I study lightweight visual models and build Agent tooling around recoverable exe
 - **Protected acceptance and bounded repair:** fixed original tests run against candidate production code; tracked verification views, logs and feedback are hash checked. Declared Python files receive syntax checks before export, and failed candidates remain available for review. [Grading](https://1137423918.github.io/notes/protected-grading.html) · [Repair workflow](https://1137423918.github.io/notes/recovery.html#repair).
 - **Current-source navigation:** Python AST outlines and symbol pages read current checkpointed virtual files, with an 8,192-byte response bound and hashes rejecting stale reads after edits. A production-edit SIGKILL control resumes with source hashes matching edited content. [Interface and evidence](https://1137423918.github.io/notes/source-navigation.html).
 
+- **Full-request context accounting:** 14 actual HTTP JSON bodies include prompts, tool schemas and history. Three operator-planned controls retrieve the same 86 source lines: sequential / known-name grep / AST use 43,990 / 11,341 / 19,054 logical reference input tokens. Grep is cheaper for these known names; reference rendering is not observed inference usage or a speed/repair score. [Protocol and evidence](https://1137423918.github.io/notes/context-budget.html).
+
 The current server suite has **49 passed / 14 skipped** (jsonschema absent in that environment), including six source-navigation checks. Reference editing and recovery controls use explicit scripted plans; overlapping acceptance counts are not added together. These results validate infrastructure, not autonomous repair capability or a hostile-code OS sandbox.
 
 ### Open-source contributions
