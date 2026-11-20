@@ -33,3 +33,5 @@ The Agent project includes a recoverable maintenance worker with SQLite checkpoi
 - Contribute small, verifiable fixes to the upstream Agent ecosystem.
 
 Project outcomes are updated with their source versions, test records, and PR links as they become available.
+
+An additional [OpenHands SDK draft PR #7032](https://github.com/OpenHands/software-agent-sdk/pull/7032) preserves undo history when a file restoration write fails. A real Linux permissions reproduction fails before the fix and succeeds afterward; 185 related tests pass on the candidate. [Reproduction and limits](https://1137423918.github.io/notes/openhands-undo.html). Submitted, awaiting human input and maintainer review; not merged.
