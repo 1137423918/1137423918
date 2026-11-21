@@ -4,7 +4,7 @@
 
 **Efficient computer vision · Reliable Agent workflows · Reproducible engineering**
 
-[Personal website](https://1137423918.github.io/) · [Project brief & PDF](https://1137423918.github.io/project-brief.html) · [Research paper](https://doi.org/10.1109/LGRS.2025.3575615) · [Experiment records](https://1137423918.github.io/#lab)
+[Personal website](https://1137423918.github.io/) · [Project brief & PDF · 2026-11-22](https://1137423918.github.io/project-brief.html) · [Research paper](https://doi.org/10.1109/LGRS.2025.3575615) · [Experiment records](https://1137423918.github.io/#lab)
 
 </div>
 
