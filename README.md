@@ -42,7 +42,7 @@ I study lightweight visual models and build Agent tooling around recoverable exe
 
 **Task-local tool scope:** complete file inventories hide and reject ls, preserve default graphs sharing the same model alias, and retain the existing source-index, restart quota and export checks. Actual HTTP, backend probes, SIGKILL and wheel-entrypoint checks use an explicitly fake model. [Contract and evidence](https://1137423918.github.io/notes/file-inventory.html).
 
-**Deployment preparation:** built a separate pinned CUDA server dependency on CPU and inspected sm_86 ELF metadata. GPU execution and model compatibility remain untested; the initial memory samples exclude Ninja job groups and are disclosed. [Build evidence and limits](https://1137423918.github.io/notes/cuda-preparation.html).
+**Deployment and GPU transport:** a pinned9B model loaded33/33 layers on one RTX3090. Three HTTP replies: forced tool arguments and constrained result JSON passed; raw READY included empty think tags and failed the original check. The overall smoke remains failed; no autonomous repository repair is claimed. [Evidence and earlier startup failures](https://1137423918.github.io/notes/cuda-preparation.html#gpu-smoke).
 
 **Latest real-model CPU trial:** a predeclared Qwen3.5-9B ADK inventory run reads successive pages 1–800, then stops at eight requests after 1721.383 seconds. No edit, patch or acceptance; existing 106 engineering checks were not rerun. A separate CUDA dependency is now CPU-built; actual GPU validation awaits suitable idle resources. [Evidence and provenance limits](https://1137423918.github.io/notes/file-inventory.html#trial-9b).
 
