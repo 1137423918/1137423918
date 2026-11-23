@@ -2,13 +2,13 @@
 
 # Junzhe Wang · A_Zhe
 
-**Efficient computer vision · Reliable Agent workflows · Reproducible engineering**
+**Efficient computer vision · Agent model research · Practical Agent applications**
 
 [Personal website](https://1137423918.github.io/) · [Project brief & PDF · 2026-11-22](https://1137423918.github.io/project-brief.html) · [Research paper](https://doi.org/10.1109/LGRS.2025.3575615) · [Experiment records](https://1137423918.github.io/#lab)
 
 </div>
 
-I study lightweight visual models and build Agent tooling around recoverable execution, explicit acceptance and reproducible failure analysis.
+I study lightweight visual models and work on both algorithm/model research and practical Agent applications, using explicit evaluation and reproducible failure analysis.
 
 ### Research
 
@@ -16,6 +16,12 @@ I study lightweight visual models and build Agent tooling around recoverable exe
 **Junzhe Wang**, Xinke Chen, Anbang Dai, Yan Liu, Guanying Huo<br>
 *IEEE Geoscience and Remote Sensing Letters*, vol. 22, 2025.<br>
 [Paper](https://doi.org/10.1109/LGRS.2025.3575615) · [Code](https://github.com/1137423918/LS-DETR)
+
+### Current research and application work
+
+Tool-use robustness connects the two tracks. A pinned public-benchmark CPU audit covers 2,718 static records and 32 gold-derived evaluator diagnostics; no neural benchmark score or training gain is claimed. Next: audit training/evaluation separation, compare data training and execution checks under equal budgets, then validate transfer to the project-evidence assistant. The standalone MCP backend is usable; reliable general natural-language auditing remains unverified. [Measured preparation and research plan](https://1137423918.github.io/notes/robust-tool-use.html).
+
+A separate real 9B GPU/MCP run was stopped by the predeclared shared-device guard after model loading. No case was graded; incomplete request evidence and cleanup are retained. [Exact outcome](https://1137423918.github.io/notes/mcp-agent.html#gpu-abort).
 
 ### Engineering projects
 
