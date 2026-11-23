@@ -6,8 +6,8 @@
 
 ## 论文
 
-**LS-DETR: Lightweight Transformer for Object Detection in Forward-Looking Sonar Images**  
-**Junzhe Wang**, Xinke Chen, Anbang Dai, Yan Liu, Guanying Huo  
+**LS-DETR: Lightweight Transformer for Object Detection in Forward-Looking Sonar Images**<br>
+**Junzhe Wang**, Xinke Chen, Anbang Dai, Yan Liu, Guanying Huo<br>
 *IEEE Geoscience and Remote Sensing Letters*, vol. 22, 2025.
 
 [论文](https://doi.org/10.1109/LGRS.2025.3575615) · [代码](https://github.com/1137423918/LS-DETR)
